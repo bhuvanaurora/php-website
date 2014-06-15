@@ -1,0 +1,324 @@
+<?php
+
+//      Floating div(s) to be created for questions
+//      Screen to be locked for further scroll down until question answered
+//      Next page to be accessed on answering the last question on the page
+//      Scroll bar showing the total length of the page to be introduced
+
+session_start();
+ob_start();
+?>
+
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<title>Erulier.</title>
+		<meta charset="utf-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="css/mystyle.css" rel="stylesheet" type="text/css"/>
+        <link href="css/content-style.css" rel="stylesheet">
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            
+        <script src="js/myscript.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic|Armata|Carrois+Gothic|Roboto:400,300,200,100' rel='stylesheet' type='text/css'>
+		
+		<style>
+            a
+                {
+                 text-decoration: none;
+                 color: #444;   
+                }
+                #footer1 a
+                {
+                 text-decoration: none;
+                 color: #444;   
+                }
+                #footer1 a:hover
+                {
+                    color: #AAA;
+                }
+
+                a:hover
+                {
+                    color: #AAA;
+                }
+                
+                #logo a:hover
+                {
+                    color: #000;
+                    text-decoration: none; 
+                }
+
+                #bg{
+           		/*box-shadow: 10px 10px 5px #888888;*/
+				width:90%;
+				border-color: #333;
+				background-color: #FFF;
+           	}
+                #header
+		 {
+			text-align: center;
+			margin-left: 0px;
+			margin-right: 0px;
+			margin-top: -10px;
+			background-color: rgba(60, 60, 60, 0.8);
+                        width:100%;    
+		}
+		.header{
+            width:18%;
+            height:44px;
+            float:left;
+            background-color:rgba(80,80,90,0.8);
+            padding:0px;
+            margin-top:40px;
+            margin-bottom:60px;
+            text-align:center;
+            border-color: #000;
+        }
+        .header1{
+            width:18%;
+            height:44px;
+            float:left;
+            background-color:rgba(80,80,90,0.8);
+            padding:0px;
+            margin-top:40px;
+            margin-bottom:60px;
+            text-align:center;
+            border-color: #000;
+        }
+		.header:hover, .header:focus, .header:active{
+	color: #fff;
+  background-color: #999;
+ border-color: #285e8e;
+}
+
+		#carousel{
+			 clear:both;
+		}
+
+        </style>
+        
+        <script>
+        String.prototype.trim = function() {return this.replace(/^\s+|\s+$/g, '')}
+        </script>
+        
+        <script src='../osc.js'></script>
+        
+        </head>
+	
+	<body>
+	<center>
+    <div id="bg">
+    <div id="bg1">
+
+		<center>
+        <div id="header">
+            <div onclick="location.href='../homepage.php';" id="logo" class="header" style="margin-left:60px;
+            border-top-left-radius:5px;border-bottom-left-radius:5px;cursor:pointer;">
+                <a href="homepage.php" style='font-family:Armata;font-weight:100;color:#FFF;font-size:30px;'>
+                Erulier</a>
+            </div>                   
+
+            <div class="header" onclick="location.href='Quant/CAT_page.php';" style="cursor:pointer;">
+                <p style="margin:0px;padding:0px;margin-top:11px;">
+                <a href="Quant/CAT_page.php" style="font-size:18px;font-family:Roboto;color:#DDD">CAT</a></p>
+            </div>
+
+            <div class="header" onclick="location.href='#';" style="cursor:pointer;">
+                <p style="margin:0px;padding:0px;margin-top:11px;">
+                <a href="#" style="font-size:18px;font-family:Roboto;color:#DDD">GMAT</a></p>
+            </div>
+            
+            <div id="username" class="header1">
+            <p style="margin:0px;padding:0px;margin-top:10px;">
+                <?php
+                if (!isset($_SESSION['username']))
+                {
+                $loggedin = FALSE;
+                echo "Guest";
+                /*header("Location: ../index.php");
+                exit;*/
+                }
+                elseif($_SESSION['username'] == 'bhuvanaurora')
+                                    {
+                                        echo <<<_END
+                                         <a href="admin.php">admin</a>
+_END;
+                }
+                else
+                {
+                $loggedin = TRUE;
+                echo $_SESSION['username'];
+                }
+                ?>
+            </p>
+            </div>
+        </center>
+
+            <div id="search" class="header1" style="border-top-right-radius:5px;border-bottom-right-radius:5px;">
+                <form class="search">
+                <input type="text" class="search-control" placeholder="Search..."  
+                style="margin-top:11px;font-size:13px;border-radius:15px;text-align:center;width:160px;">
+                </form>
+            </div>
+
+			
+		</div>
+
+		<div id="carousel">
+		<?php
+            require("carousel.php");
+        ?>
+        </div>
+
+        <div class="container marketing">
+        
+        <div class="row featurette" style="margin-bottom:100px;">
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Pics/Maths.jpg" style="width:350px;height:350px;">
+            </div>
+            <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:80px;">
+                INFOGRAPHICS </br> <span class="text-muted"> 
+                A picture is worth 1000 words</span></h3>
+                <p class="lead" style="text-align:justify;font-size:18px;">
+                Learning content does not necessarily be textual for increasing knowledge.
+                Data visualization through graphic visual representation is a popular new way of sharing knowledge. Infographics 
+                increase cognition exponentially. We use this scientifically proven technique to aid users' learning. 
+                This results in lower learning time and higher knowledge retention. As much as a few research papers worth of 
+                knowledge can be imparted through a single infographic. Infographics also allow higher attention spans and increased 
+                time spent on knowledge gathering.
+                </p>
+            </div>
+        </div>
+
+    <hr class="line" style="margin-top:10pc;clear:both;"></hr>
+
+        <div class="row featurette"  style="margin-bottom:100px;">
+           <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:120px;">
+                VIDEOS </br><span class="text-muted"> 
+                Interactive animations  </span></h3>
+                    <p class="lead" style="text-align:justify;font-size:18px;">
+                    Videos with professors delivering lectures are ghosts of the past. Animated videos are the way to go.
+                    Traditionally lectures were delivered at communes and churches where there was one experienced person 
+                    referred to as a teacher and rest were students. With no other medium of mass communication, lectures were the 
+                    only choice. However, centuries later even after the development of mass media we are still stuck with lectures. 
+                    With graphic representation proven as a superior medium of gaining knowledge and lectures a 
+                    way of explaining the concepts in detail, animated videos offer the best of both worlds.</p>
+            </div>
+             <div class="col-md-5">
+                <video id="Video" width="540" height="360" controls loop>
+                        <source src="Videos/Interest.mp4" type="video/mp4" />           
+                </video>
+            </div>
+        </div>
+
+        <hr class="line" style="margin-top:12pc;clear:both;"></hr>
+
+        <div class="row featurette"  style="margin-bottom:60px;">
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Pics/adaptivelearning.jpg" 
+                style="width:500px;height:300px;">
+            </div>
+            <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:60px;">
+                ADAPTIVE CONTENT </br> <span class="text-muted"> 
+                Personalized study experience</span></h3>
+                <p class="lead" style="text-align:justify;font-size:18px;"> 
+                Just as every person is unique, so is every child. We understand the importance of accepting this uniquesness 
+                and using it as an advantage to make a mark on the society. Our adaptive algorithm has been developed keeping in 
+                view different needs of the users and providing content that best suits the need of every user by uniquely 
+                accessing our large database of content and questions.</p>
+            </div>
+        </div>
+
+     <hr class="line" style="margin-top:8pc;clear:both;"></hr>
+
+        <div class="row featurette"  style="margin-bottom:100px;">
+            <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:120px;">
+                PERFORMANCE MONITORING<br /> <span class="text-muted"> 
+                Continuous evaluation</span></h3>
+                <p class="lead" style="text-align:justify;font-size:18px;">
+                We believe in continuous performance monitoring of users for precise evaluation of content understanding. Deep 
+                understanding of content ensures no surprises on the day of examination. We closely monitor the performance and 
+                provide the unique content repeatedly for topics that take longer to understand and graphical representation 
+                allows the users to evaluate themselves and even compare their performance with global users over the past 
+                for the all essential motivation to walk the extra mile.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Pics/performance.jpg"> 
+            </div>
+        </div>
+
+        <hr class="line" style="margin-top:10pc;clear:both;"></hr>
+        
+        <div class="row featurette">
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Pics/tutoring.jpg">
+            </div>
+            <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:80px;">
+                ONLINE TUTORING </br> <span class="text-muted">
+                Your personal virtual tutor</span></h3>
+                <p class="lead" style="text-align:justify;font-size:18px;"> 
+                Our online tutors help you evaluate your performance through profile reviews. They support the users in 
+                understanding difficult topics and questions by providing alternate ways and understanding the nature of 
+                problem to ensure deep understanding of the topics.</p>
+
+            </div>
+        </div>
+
+        <hr class="line" style="margin-top:10pc;clear:both;"></hr>
+        
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h3 class="featurette-heading" style="text-align:center;margin-bottom:20px;margin-top:100px;"> 
+                COMMUNITIES </br>  <span class="text-muted">
+                Collaborative learning</span></h3>
+                <p class="lead" style="text-align:justify;font-size:18px;">
+                Peer group discussions are believed to unearth new perspectives to existing problems and aid deeper 
+                understanding of concepts with longer retention. Our communities allow the users to interact with others 
+                globally who are studying the same concepts or sort through past discussions via the ubiquitous search bar.
+                The availability of professors and subject matter experts in the communities allows them to help the users 
+                in case they are unable to figure out answers themselves.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="Pics/groupstudy.jpg">
+            </div>
+        </div>
+</div>
+</div>
+                
+<div id="footerback">
+        <hr class="line"></hr>
+        <div id="footer1" style="text-align:center;">
+        <!--ul class="footer1ul"-->
+            <!--li class="footer1li"--><a href="../homepage.php" style="letter-spacing:1px;">HOME</a><!--/li--> |
+            <!--li class="footer1li"--><a href="../aboutus.php" style="letter-spacing:1px;">ABOUT US</a><!--/li--> |
+            <!--<li class="footer1li"><a href="../termsofuse.php" style="letter-spacing:1px;">TERMS OF USE</a></li>
+            <li class="footer1li"><a href="../privacypolicy.php" style="letter-spacing:1px;">PRIVACY POLICY</a></li>-->
+            <!--li class="footer1li"--><a href="../contactus.php" style="letter-spacing:1px;">CONTACT US</a><!--/li-->
+        <!--/ul-->
+        </div>
+        
+    <div id="footer2" style="margin-bottom:-100px;">
+        <?php echo "&copy" ?> Erulier   
+    </div>
+</div>
+</div>    
+</div>
+
+</center>
+</body>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic|Armata|Carrois+Gothic|Roboto:400,300,200,100' rel='stylesheet' type='text/css'>
+
+</html>

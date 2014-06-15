@@ -1,0 +1,359 @@
+/* CSS Document */
+
+/*
+#FBAE2C     rgb(251, 174, 44)  ORANGE
+#B683BA      rgb(182, 131, 186)  LIGHT LAVENDER
+#A858A3    rgb(168, 88, 163)  DARK LAVENDER
+#0263AE    rgb(173, 169, 130)  DARK TAN
+#D8D5BC   rgb(2, 99, 174)  DARK BLUE
+#F9E482   rgb(249, 228, 130)  LIGHT YELLOW
+#BFBFBF rgb(191, 191, 191) LIGHT GRAY
+#414042    rgb(65, 64, 66)  DARK GRAY
+*/
+
+/*Font declarations*/
+@font-face {
+    font-family: 'Bitter';
+    src: url('../_fonts/Bitter-Regular-webfont.eot');
+    src: url('../_fonts/Bitter-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../_fonts/Bitter-Regular-webfont.woff') format('woff'),
+         url('../_fonts/Bitter-Regular-webfont.ttf') format('truetype'),
+         url('../_fonts/Bitter-Regular-webfont.svg#BitterRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bitter';
+    src: url('../_fonts/Bitter-Italic-webfont.eot');
+    src: url('../_fonts/Bitter-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../_fonts/Bitter-Italic-webfont.woff') format('woff'),
+         url('../_fonts/Bitter-Italic-webfont.ttf') format('truetype'),
+         url('../_fonts/Bitter-Italic-webfont.svg#BitterItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Bitter';
+    src: url('../_fonts/Bitter-Bold-webfont.eot');
+    src: url('../_fonts/Bitter-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../_fonts/Bitter-Bold-webfont.woff') format('woff'),
+         url('../_fonts/Bitter-Bold-webfont.ttf') format('truetype'),
+         url('../_fonts/Bitter-Bold-webfont.svg#BitterBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DroidSans';
+    src: url('../_fonts/DroidSans-webfont.eot');
+    src: url('../_fonts/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../_fonts/DroidSans-webfont.woff') format('woff'),
+         url('../_fonts/DroidSans-webfont.ttf') format('truetype'),
+         url('../_fonts/DroidSans-webfont.svg#DroidSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DroidSans';
+    src: url('../_fonts/DroidSans-Bold-webfont.eot');
+    src: url('../_fonts/DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../_fonts/DroidSans-Bold-webfont.woff') format('woff'),
+         url('../_fonts/DroidSans-Bold-webfont.ttf') format('truetype'),
+         url('../_fonts/DroidSans-Bold-webfont.svg#DroidSansBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*reset tags*/
+html, body, div, section, article, aside, header, footer, nav, h1, h2, h3, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, th, td, tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align:baseline;
+	font: inherit;
+}
+
+/*html5 display rule*/
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+	display: block;
+}
+html {
+	background: rgb(65, 64, 66);
+}
+body {
+	font: 100% DroidSans, Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+	font-weight:normal;
+	font-style:normal;
+}
+article {
+	clear: both;
+}
+a {
+	color: white;
+	text-decoration: none;
+}
+a:hover {
+	background: url(../_images/diag_pattern.png); 
+}
+p {
+	margin-bottom: 1em;
+}
+/* Global classes */
+
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+/*layout styles*/ 
+body {
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+}
+article#mainContent {
+	float: left;
+	background: white;
+	width: 607px;
+	margin-top: 3px;
+	padding: 16px;
+}
+aside {
+	float: right;
+	width: 318px;
+}
+footer {
+	clear: both;
+}
+
+/*Header styles*/
+.pageHeader h1 {
+	width: 200px;
+	height: 77px;
+	text-indent: -9000em;
+	position: absolute;
+	top: 56px;
+	left: 0px;
+	background: black url(../_images/hackfest_logo.jpg) no-repeat;
+	z-index: 5;
+}
+
+/*Nav styles*/
+.pageHeader nav {
+	padding: 10px 0 0 0;
+	background:rgba(88, 88,88,.9);
+	height: 45px;
+	display:compact;
+}
+.pageHeader ul {
+	list-style: none;
+	margin-left: 192px;
+}
+.pageHeader li {
+	float: left;
+	margin-right: 64px;
+	font-size:18px;
+}
+.pageHeader a {
+	color: white;
+	text-decoration: none;
+	line-height: 45px;
+	font-size: .9em;
+	text-transform: lowercase;
+}
+.pageHeader a:hover {
+	color: rgb(251, 174, 44);
+	background: none;
+}
+/*page-specific header styles*/
+.homeHeader {
+	height: 400px;
+	background: url(../_images/hack.jpg) no-repeat;
+}
+
+/*info section styles*/
+section.info {
+	width: 318px;
+	max-height: 308px;
+	margin: 3px 3px 0 0;
+	float: left;
+	background: white;
+	overflow: hidden;
+	position: relative;
+	-webkit-transition: max-height 0.75s ease 0s;
+	-moz-transition: max-height 0.75s ease 0s;
+	-ms-transition: max-height 0.75s ease 0s;
+	-o-transition: max-height 0.75s ease 0s;
+	transition: max-height 0.75s ease 0s;
+}
+section.info:hover {
+	max-height: 999px;
+}
+/* derek banas */
+section.info h2 {
+	color: white;
+	background: url(../_images/diag_pattern.png);
+	line-height: 45px;
+	padding-left: .6em;
+	font-family: Bitter, Georgia, Times, "Times New Roman", serif;
+	font-size: 1.6em;
+	font-weight: 100;
+}
+section.info img {
+	display: block;
+	margin: 0 auto 2em;
+}
+section.info:after {
+	content: " ";
+	background: url(../_images/hover.png) no-repeat right top;
+	width: 30px;
+	height: 45px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+section.info p, section.info ul {
+	margin: 0 1.2em 1em;
+	list-style: none;
+}
+section.info li {
+	margin-bottom: .8em;
+	font-size: .9em;
+}
+section.info:hover:after {
+	background-position: right bottom;
+}
+section.info .date {
+	font-weight: bold;
+	color: white;
+	display: block;
+}
+section.mentor {
+	background: rgb(251, 174, 44);
+	margin-right: 0;
+}
+section.sponsor {
+	background:rgb(102,153,153);
+	margin-right: 0;
+}
+section.connect {
+	background: rgb(168, 88, 163);
+	margin-right: 0;
+}
+.connect ul {
+	list-style: none;
+	margin: 0;
+}
+section.connect li {
+	float: left;
+	margin: 16px 0;
+	margin-right: 32px;
+}
+.connect li a{
+	display: block;
+	width: 45px;
+	height: 45px;
+	text-indent: -999em;
+}
+.connect li:last-child  {
+	margin-right: 0;
+}
+aside section.connect:after, aside section.find:after {
+	content: normal;
+}
+a.twitter {
+	background: url(../_images/icon_twitter.png) no-repeat;
+}
+a.google {
+	background: url(../_images/icon_google.png) no-repeat;
+}
+a.facebook {
+	background: url(../_images/icon_facebook.png) no-repeat;
+}
+a.linked {
+	background: url(../_images/icon_linked.png) no-repeat;
+}
+section.find {
+	background: rgb(2, 99, 174);
+	margin-right: 0;
+}
+section.find ul {
+	margin-top: 16px;
+}
+section.find a:hover {
+	color: rgb(251, 174, 44);
+}
+/*main article styles*/
+article h2 {
+	font-family: Bitter, Georgia, Times, "Times New Roman", serif;
+	font-size: 1.5em;
+	color: rgb(65, 64, 66);
+	margin-bottom: .5em;
+}
+article .more {
+	color: rgb(2, 99, 174);
+	text-align: right;
+	font-weight: bold;
+}
+article a.more:hover {
+	color: rgb(251, 174, 44);
+	background: none;
+}
+/*footer styles	*/
+footer#pageFooter {
+	background: rgb(249, 228, 130);
+	color: rgb(65, 64, 66);
+	padding: 32px 0 16px;
+}
+footer h3 {
+	font-family: Bitter, Georgia, Times, "Times New Roman", serif;
+	text-transform: uppercase;
+	font-size: 1em;
+	text-align: center;
+	margin-bottom: 1em;
+}
+footer p {
+	font-size: .7em;
+	text-align: center;
+	clear: both;
+}
+footer p a{
+	color: rgb(65, 64, 66);
+	text-decoration: underline;
+}
+footer ul a{
+	color: rgb(65, 64, 66);
+}
+footer a:hover {
+	color: white;
+}
+footer .col {
+	float: left;
+	width: 286px;
+	border-right: 2px solid rgba(191, 191, 191, .8);
+	margin-bottom: 1em;
+	padding-left: 32px;
+}
+footer .col:last-child {
+	border: none;
+}
+footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: .6em;
+}
+footer li {
+	margin-bottom: 1em;
+}
+footer .col1 {
+	float: left;
+	width: 130px;
+}
+footer .col2 {
+	float: right;
+	width: 130px;
+}

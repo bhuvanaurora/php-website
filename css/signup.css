@@ -1,0 +1,151 @@
+/*
+ * Author: Bhuvan Arora / bhuvan.aurora@gmail.com
+ * signup page css
+ *
+ */                
+                #header
+		{
+			text-align: center;
+			color: white;
+			margin-top:150px;
+		}
+
+		#logo
+		{
+                        
+			margin-top: 30px;
+			border-bottom: 0px;
+			padding-bottom: 0px;
+			margin-bottom: 0px;
+			position: relative;
+			font-size: 42px;
+			color: #FFF;
+                        letter-spacing: 0.5px;
+                        font-family: Roboto, serif;
+                        font-weight: 100;
+		}
+
+		#logo2
+		{
+			font-size: 18px;
+                        font-family: Roboto, serif;
+                        font-weight: 100;
+		}
+                
+		a
+		{
+			/*text-style: none;*/
+			color: #CCC;
+			text-decoration: none;
+		}
+
+                a:hover
+                {
+                    color: #EEE;
+                }
+                
+                a > h5
+                {
+                        font-weight:lighter;
+                }
+                
+		#content
+		{
+			text-align: center;
+			vertical-align: middle;
+			margin-top: 60px;
+                        font-family: Georgia, "Times New Roman", Times, serif;
+			/*border-top-style: none;
+			border-right-style: none;
+			border-bottom-style: none;
+			border-left-style: none;*/
+		}
+		
+		#content input
+		{
+			/*margin: 7px;*/
+		}
+                
+                #content
+                {
+                    height: 400px;
+                    margin-top: 50px;
+                }
+		
+		#footer
+		{
+			text-align: center;
+			font-size: 12px;
+			font-weight: bold;
+			color: #FFF;
+			
+		}
+                body
+                {
+                        width: 1300px;
+                }
+                
+                
+
+.form-signin {
+  margin: 0 auto;
+  
+}
+.form-signin input {
+width: 300px;
+  height: 40px;
+}
+.form-signin input[name="username"]
+{
+  border: 0;
+  margin:1px;
+  padding-bottom:0px;
+  text-align:center;
+  font-size: 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  
+}
+.form-signin input[name="email"] {
+    text-align:center;
+  font-size: 20px;
+  border: 0;
+  margin: 1px;
+  
+}
+
+.form-signin input[name="password"] {
+  border:0;
+  margin:1px;
+  padding-top:0px;
+    text-align:center;
+  font-size: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  
+}
+
+.form-signin input[type="submit"]
+{
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    padding:0;
+    border:0;
+    font-size:16px;
+    font-family: Sans-Serif;
+}
+		ul
+		{
+			list-style-type: none;
+		}
+		
+		li
+		{
+			display: inline;
+		}
+		body
+		{
+			background-image: url(1615884.jpg);
+                }

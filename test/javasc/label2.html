@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Line and Bar Chart</title>
+		<script src="Chart.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+	
+	
+	</head>
+	<body>
+<h1 align="center"> Opening/Closing and Highest/Lowest Stock Value of NASDAQ for the last month</h1> 
+<pre>
+                         Red:Opening                                                                                              Grey:Highest
+                         Green:Closing                                                                                            Blue:lowest
+</pre>
+		<canvas id="canvas" height="520" width="700"></canvas>
+        <canvas id="bar" height="520" width="600"></canvas>
+		<script>
+
+
+Array.prototype.mapProperty = function(property) {
+ 	return this.map(function (obj) {
+ 		return obj[property];
+ 	});
+ };
+
+ 
+ 
+ 
+ var myData = [
+  {
+    "Date":"1-May-14",
+    "Open":527.11,
+    "High":532.93,
+    "Low":523.88,
+    "Close":531.35,
+    "Volume":"1900432"
+  },
+  {
+    "Date":"30-Apr-14",
+    "Open":527.60,
+    "High":528.00,
+    "Low":522.52,
+    "Close":526.66,
+    "Volume":"1746904"
+  },
+  {
+    "Date":"29-Apr-14",
+    "Open":516.90,
+    "High":529.46,
+    "Low":516.32,
+    "Close":527.70,
+    "Volume":"2692489"
+  },
+  {
+    "Date":"28-Apr-14",
+    "Open":517.18,
+    "High":518.60,
+    "Low":502.80,
+    "Close":517.15,
+    "Volume":"3326429"
+  },
+  {
+    "Date":"25-Apr-14",
+    "Open":522.51,
+    "High":524.70,
+    "Low":515.42,
+    "Close":516.18,
+    "Volume":"2097264"
+  },
+  {
+    "Date":"24-Apr-14",
+    "Open":530.07,
+    "High":531.65,
+    "Low":522.12,
+    "Close":525.16,
+    "Volume":"1881965"
+  },
+  {
+    "Date":"23-Apr-14",
+    "Open":533.79,
+    "High":533.87,
+    "Low":526.25,
+    "Close":526.94,
+    "Volume":"2051066"
+  },
+  {
+    "Date":"22-Apr-14",
+    "Open":528.64,
+    "High":537.23,
+    "Low":527.51,
+    "Close":534.81,
+    "Volume":"2359421"
+  },
+  {
+    "Date":"21-Apr-14",
+    "Open":536.10,
+    "High":536.70,
+    "Low":525.60,
+    "Close":528.62,
+    "Volume":"2561214"
+  },
+  {
+    "Date":"17-Apr-14",
+    "Open":548.81,
+    "High":549.50,
+    "Low":531.15,
+    "Close":536.10,
+    "Volume":"6795393"
+  },
+  {
+    "Date":"16-Apr-14",
+    "Open":543.00,
+    "High":557.00,
+    "Low":540.00,
+    "Close":556.54,
+    "Volume":"4879889"
+  },
+  {
+    "Date":"15-Apr-14",
+    "Open":536.82,
+    "High":538.45,
+    "Low":518.46,
+    "Close":536.44,
+    "Volume":"3847453"
+  },
+  {
+    "Date":"14-Apr-14",
+    "Open":538.25,
+    "High":544.10,
+    "Low":529.56,
+    "Close":532.52,
+    "Volume":"2568020"
+  },
+  {
+    "Date":"11-Apr-14",
+    "Open":532.55,
+    "High":540.00,
+    "Low":526.53,
+    "Close":530.60,
+    "Volume":"3916171"
+  },
+  {
+    "Date":"10-Apr-14",
+    "Open":565.00,
+    "High":565.00,
+    "Low":539.90,
+    "Close":540.95,
+    "Volume":"4027743"
+  },
+  {
+    "Date":"9-Apr-14",
+    "Open":559.62,
+    "High":565.37,
+    "Low":552.95,
+    "Close":564.14,
+    "Volume":"3324742"
+  },
+  {
+    "Date":"8-Apr-14",
+    "Open":542.60,
+    "High":555.00,
+    "Low":541.61,
+    "Close":554.90,
+    "Volume":"3152406"
+  },
+  {
+    "Date":"7-Apr-14",
+    "Open":540.74,
+    "High":548.48,
+    "Low":527.15,
+    "Close":538.15,
+    "Volume":"4389569"
+  },
+  {
+    "Date":"4-Apr-14",
+    "Open":574.65,
+    "High":577.77,
+    "Low":543.00,
+    "Close":543.14,
+    "Volume":"6377658"
+  },
+  {
+    "Date":"3-Apr-14",
+    "Open":569.85,
+    "High":587.28,
+    "Low":564.13,
+    "Close":569.74,
+    "Volume":"5087530"
+  },
+  {
+    "Date":"2-Apr-14",
+    "Open":282.43,
+    "High":571.83,
+    "Low":561.44,
+    "Close":566.98,
+    "Volume":"2088804"
+  },
+  {
+    "Date":"1-Apr-14",
+    "Open":559.57,
+    "High":568.18,
+    "Low":558.44,
+    "Close":566.88,
+    "Volume":"2182626"
+  }
+  
+  
+],
+  
+ lineChartData = {
+      labels : myData.mapProperty('Date'),
+      datasets : [
+        {
+        fillColor : "rgba(220,220,220,0.5)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(0,255,0,1)",
+        pointStrokeColor : "#fff",
+        data : myData.mapProperty('Close')
+       },
+       {
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(255,0,0,1)",
+					pointStrokeColor : "#fff",
+					data : myData.mapProperty('Open')
+				}
+	 
+	 
+	 ]
+   };
+   var barChartData = {
+			labels : myData.mapProperty('Date'),
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					data : myData.mapProperty('High')
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : myData.mapProperty('Low')
+				}
+			]
+			
+		};
+   
+   
+   new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+   new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+   </script>
+   </body>
+   </html>
